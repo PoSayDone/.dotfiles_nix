@@ -70,14 +70,14 @@ in {
 
   services = {
     mpris-proxy.enable = true;
-    kdeconnect = {
-      enable = true;
-      indicator = false;
-    };
-    udiskie = {
-      enable = true;
-      notify = false;
-    };
+    # kdeconnect = {
+    #   enable = true;
+    #   indicator = false;
+    # };
+    # udiskie = {
+    #   enable = true;
+    #   notify = false;
+    # };
   };
 
   programs.home-manager.enable = true;

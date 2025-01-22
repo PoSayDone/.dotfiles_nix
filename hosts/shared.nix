@@ -39,6 +39,9 @@
 
   #virtualisation
   virtualisation = {
+    podman = {
+      enable = true;
+    };
     docker = {
       enable = true;
     };
@@ -47,6 +50,7 @@
   # packages
   environment = {
     systemPackages = with pkgs; [
+      pkgs.distrobox
       polkit_gnome
       home-manager
       system-config-printer
@@ -67,7 +71,7 @@
   security.pam.services.astal-auth = {};
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    nerd-fonts.jetbrains-mono
     source-han-sans
   ];
 
@@ -94,7 +98,6 @@
     zsh.enable = true;
   };
 
-  hardware.pulseaudio.enable = false;
   # services
   services = {
     postgresql = {
@@ -107,6 +110,7 @@
         host  all       all     ::1/128        trust
       '';
     };
+    pulseaudio.enable = false;
     pipewire = {
       enable = true;
       audio.enable = true;

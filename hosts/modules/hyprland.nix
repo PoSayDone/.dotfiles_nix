@@ -66,8 +66,7 @@
   };
 
   environment = {
-    systemPackages = with pkgs;
-    with gnome; [
+    systemPackages = with pkgs; [
       adwaita-icon-theme
       nautilus
       gnome-calendar

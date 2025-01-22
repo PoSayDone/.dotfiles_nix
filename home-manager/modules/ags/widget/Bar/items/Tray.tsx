@@ -58,12 +58,27 @@ export default () => {
 			<BarItem className="bar__tray">
 				<box spacing={4} hexpand={false} valign={Gtk.Align.CENTER}>
 					{bind(tray, "items").as((items) =>
+						items.map((item) => (
+							<menubutton
+								className="bar__tray-item"
+								tooltipMarkup={bind(item, "tooltipMarkup")}
+								usePopover={false}
+								actionGroup={bind(item, "action-group").as(
+									(ag) => ["dbusmenu", ag],
+								)}
+								menuModel={bind(item, "menu-model")}
+							>
+								<icon gicon={bind(item, "gicon")} />
+							</menubutton>
+						)),
+					)}
+					{/* {bind(tray, "items").as((items) =>
 						items.map((item) => {
 							if (item.iconThemePath)
 								App.add_icons(item.iconThemePath);
 							return <BarTrayItem item={item} />;
 						}),
-					)}
+					)} */}
 				</box>
 			</BarItem>
 		</revealer>
