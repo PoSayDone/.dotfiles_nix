@@ -11,7 +11,7 @@
     ];
     pointerCursor = {
       gtk.enable = true;
-      package = pkgs.gnome.adwaita-icon-theme;
+      package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
       size = 24;
     };
@@ -47,7 +47,7 @@
       name = "adw-gtk3-dark";
     };
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
+      package = pkgs.adwaita-icon-theme;
       name = "MoreWaita";
     };
     font = {

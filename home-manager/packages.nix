@@ -4,8 +4,7 @@
   ...
 }: {
   home.packages = with pkgs;
-  with nodePackages_latest;
-  with gnome; [
+  with nodePackages_latest; [
     #cli
     xclip
     btop
@@ -21,7 +20,7 @@
     tesseract
 
     #tools
-    # rustdesk-flutter
+    rustdesk-flutter
     ripdrag
     nekoray
     wineWowPackages.waylandFull
@@ -30,6 +29,7 @@
     blueman
 
     #gui
+    onlyoffice-desktopeditors
     lutris
     obs-studio
     wpsoffice
@@ -78,11 +78,12 @@
     dbeaver-bin
     jetbrains.rider
     bruno
-    # zed-editor
+    zed-editor
     docker-compose
     android-studio
 
     # langs
+    omnisharp-roslyn
     nixd
     black
     nodejs

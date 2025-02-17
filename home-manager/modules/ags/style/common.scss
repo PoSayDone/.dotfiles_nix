@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "colors";
+
 * {
 	font-size: 14px;
 	outline: none;
@@ -17,7 +20,7 @@ icon {
 slider {
 	border: none;
 	outline: none;
-	background: $inverse_surface_transparent_variant;
+	background: colors.$inverse_surface_transparent_variant;
 }
 
 separator {
@@ -46,7 +49,7 @@ window.popup {
 	menu {
 		margin-top: 12px;
 		border-radius: 26px;
-		background-color: $surface_transparent;
+		background-color: colors.$surface_transparent;
 		padding: 10px;
 
 		// separator {
@@ -56,11 +59,11 @@ window.popup {
 		menuitem {
 			min-width: 140px;
 			padding: 12px 6px;
-			color: $on_surface;
+			color: colors.$on_surface;
 			border-radius: 100px;
 			transition: background 0.1s ease;
 			&:hover {
-				background: $inverse_surface_transparent;
+				background: colors.$inverse_surface_transparent;
 			}
 			&:first-child {
 				margin-top: 0;
@@ -73,31 +76,31 @@ window.popup {
 }
 
 switch {
-	border: 2px solid $outline;
+	border: 2px solid colors.$outline;
 	border-radius: 100px;
-	background-color: $surface_container_highest;
+	background-color: colors.$surface_container_highest;
 }
 
 switch slider {
 	box-shadow: none;
 	border-radius: 100px;
-	background-color: $outline;
+	background-color: colors.$outline;
 }
 
 switch:hover slider,
 switch:active slider {
-	background-color: $on_surface_variant;
+	background-color: colors.$on_surface_variant;
 }
 
 switch:active {
-	background-color: mix($surface_container_highest, $on_surface, 0.08 * 1%);
+	background-color: color.mix(colors.$surface_container_highest, colors.$on_surface, 0.08 * 1%);
 }
 
 switch:checked {
-	background-color: $primary;
-	border: 2px solid $primary;
+	background-color: colors.$primary;
+	border: 2px solid colors.$primary;
 }
 
 switch:checked slider {
-	background-color: $on_primary;
+	background-color: colors.$on_primary;
 }

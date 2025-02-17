@@ -1,8 +1,11 @@
+@use "sass:color";
+@use "colors";
+
 .app-launcher {
 	min-width: 450px;
 	border-radius: 32px;
 	padding: 0px;
-	background: $surface_transparent;
+	background: colors.$surface_transparent;
 	min-height: 700px;
 }
 
@@ -13,7 +16,7 @@
 	margin-top: 5px;
 	padding: 12px 22px;
 	border-radius: 0px;
-	border-bottom: 2px solid $inverse_surface_transparent;
+	border-bottom: 2px solid colors.$inverse_surface_transparent;
 	box-shadow: none;
 
 	icon {
@@ -38,11 +41,11 @@
 
 		&.title {
 			font-weight: 500;
-			color: $on_surface;
+			color: colors.$on_surface;
 		}
 
 		&.description {
-			color: transparentize($on_surface, 0.3);
+			color: color.adjust(colors.$on_surface, $alpha: -0.3);
 		}
 	}
 
@@ -52,30 +55,30 @@
 	}
 
 	&:hover {
-		background: $inverse_surface_transparent;
+		background: colors.$inverse_surface_transparent;
 		.title {
-			color: $on_surface;
+			color: colors.$on_surface;
 		}
 	}
 
 	&:focus {
-		background: $primary;
+		background: colors.$primary;
 		.title {
-			color: $on_primary;
+			color: colors.$on_primary;
 		}
 		.description {
-			color: $on_primary;
+			color: colors.$on_primary;
 		}
 	}
 
 	&:active {
 		background: yellow;
-		background-color: transparentize($primary, 0.2);
+		background-color: color.adjust(colors.$primary, $alpha: -0.2);
 		border-radius: 100px;
-		box-shadow: inset 0 0 0 1px $primary;
+		box-shadow: inset 0 0 0 1px colors.$primary;
 
 		.title {
-			color: $on_primary;
+			color: colors.$on_primary;
 		}
 	}
 }

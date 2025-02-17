@@ -38,10 +38,14 @@ const TodoItem = ({ todo }: { todo: Task }) => {
 				<button
 					onClick={() => {
 						status.set("completed");
-						timeout(50, () => {
-							if (revealer.ref) revealer.ref.revealChild = false;
-						});
-						GoogleTasksService.checkTask(todo);
+						if (revealer.ref) {
+							revealer.ref.revealChild = false;
+							timeout(revealer.ref.transitionDuration, () => {
+								GoogleTasksService.checkTask(todo);
+							});
+						} else {
+							GoogleTasksService.checkTask(todo);
+						}
 					}}
 				>
 					<icon
@@ -88,21 +92,22 @@ class TodosMap implements Subscribable {
 	private updateMap(tasks: Task[]) {
 		const newTasksIds = new Set(tasks.map((task) => task.id));
 
-		for (const task of tasks) {
+		tasks.forEach((task) => {
 			const existingTask = this.map.get(task.id);
-			if (!existingTask)
+
+			if (!existingTask) {
 				this.map.set(
 					task.id,
 					Object.assign(TodoItem({ todo: task }), {
 						position: parseInt(task.position),
 					}),
 				);
-			else existingTask.position = task.position;
-		}
+			} else existingTask.position = task.position;
+		});
 
 		for (const id of this.map.keys()) {
 			if (!newTasksIds.has(id)) {
-				this.map.delete(id);
+				if (this.map.has(id)) this.map.delete(id);
 			}
 		}
 

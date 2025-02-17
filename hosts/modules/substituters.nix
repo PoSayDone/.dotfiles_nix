@@ -1,9 +1,8 @@
 {
   nix.settings = {
     substituters = [
-      "https://aseipp-nix-cache.global.ssl.fastly.net?priority=10"
+      "https://aseipp-nix-cache.global.ssl.fastly.net"
       "https://ags.cachix.org"
-      "https://cache.nixos.org/"
       "https://cosmic.cachix.org/"
       "https://anyrun.cachix.org"
       "https://fufexan.cachix.org"

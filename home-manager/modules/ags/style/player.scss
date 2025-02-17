@@ -1,6 +1,8 @@
+@use "colors";
+
 .player {
 	min-height: 155px;
-	background: $surface_transparent;
+	background: colors.$surface_transparent;
 	padding: 20px;
 	border-radius: 30px;
 	background-size: cover;
@@ -28,8 +30,8 @@
 	min-width: 60px;
 	min-height: 60px;
 	padding: 0;
-	background: $primary;
-	color: $on_primary;
+	background: colors.$primary;
+	color: colors.$on_primary;
 	border-radius: 0px;
 	transition:
 		background 0.3s ease-in-out,
@@ -64,7 +66,7 @@
 
 		highlight {
 			border-radius: 100px;
-			background-color: $on_surface;
+			background-color: colors.$on_surface;
 			border-radius: 100px;
 			transition:
 				background-color 0.3s ease-in-out,
@@ -77,7 +79,7 @@
 			border-radius: 7px;
 			border-radius: 10px;
 			box-shadow: none;
-			background-color: $on_surface;
+			background-color: colors.$on_surface;
 
 			transition:
 				background-color 0.3s ease-in-out,
@@ -90,12 +92,12 @@
 .player__indicator {
 	min-width: 8px;
 	min-height: 8px;
-	background: $inverse_surface_transparent_variant;
+	background: colors.$inverse_surface_transparent_variant;
 	border-radius: 100px;
 	margin-bottom: 8px;
 	transition: 0.3s all ease-in-out;
 	&.selected {
-		background: $inverse_surface;
+		background: colors.$inverse_surface;
 	}
 }
 

@@ -21,9 +21,10 @@ export default () => {
 							valign={Gtk.Align.CENTER}
 							className={bind(hypr, "focusedWorkspace").as(
 								(fw) => {
-									return i === fw.id
-										? "bar__workspaces-indicator active"
-										: "bar__workspaces-indicator";
+									if (fw)
+										return i === fw.id
+											? "bar__workspaces-indicator active"
+											: "bar__workspaces-indicator";
 								},
 							)}
 							onClicked={() => focusWorkspace(i)}

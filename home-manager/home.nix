@@ -74,10 +74,10 @@ in {
       enable = true;
       indicator = false;
     };
-    udiskie = {
-      enable = true;
-      notify = false;
-    };
+    # udiskie = {
+    #   enable = true;
+    #   notify = false;
+    # };
   };
 
   programs.home-manager.enable = true;

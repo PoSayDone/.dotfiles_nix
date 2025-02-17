@@ -1,3 +1,5 @@
+@use "colors";
+
 .dashboard {
 	border-radius: 38px;
 	min-width: 420px;
@@ -7,7 +9,7 @@
 }
 
 .block {
-	background: $surface_transparent;
+	background: colors.$surface_transparent;
 	border-radius: 30px;
 	padding: 20px;
 	transition:
@@ -16,7 +18,7 @@
 }
 
 .placeholder {
-	color: $outline;
+	color: colors.$outline;
 	label {
 		font-size: 18px;
 	}
@@ -40,12 +42,12 @@
 
 .calendar__button__today {
 	border-radius: 100px;
-	background: $primary;
-	color: $on_primary;
+	background: colors.$primary;
+	color: colors.$on_primary;
 }
 
 .calendar__button__other-month {
-	color: $outline;
+	color: colors.$outline;
 }
 
 .calendar__weekday {
@@ -59,11 +61,11 @@
 	min-height: 40px;
 	min-width: 40px;
 	&.active {
-		background: $primary;
-		color: $on_primary;
+		background: colors.$primary;
+		color: colors.$on_primary;
 	}
 	&.inactive {
-		color: $inverse_surface_transparent_variant;
+		color: colors.$inverse_surface_transparent_variant;
 	}
 }
 
@@ -108,14 +110,14 @@
 .todo__check,
 .todo__delete {
 	font-size: 20px;
-	color: $on_surface_variant;
+	color: colors.$on_surface_variant;
 }
 
 .todos__input_box {
 	padding: 0 10px;
 	icon {
 		font-size: 20px;
-		color: $primary;
+		color: colors.$primary;
 	}
 	min-height: 42px;
 }
@@ -125,6 +127,6 @@
 	font-size: 16px;
 	background: none;
 	font-weight: 500;
-	color: $primary;
-	caret-color: $primary;
+	color: colors.$primary;
+	caret-color: colors.$primary;
 }

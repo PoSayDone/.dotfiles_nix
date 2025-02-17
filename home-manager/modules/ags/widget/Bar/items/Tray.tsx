@@ -8,27 +8,16 @@ type BarTrayItemProps = {
 };
 
 const BarTrayItem = ({ item }: BarTrayItemProps) => {
-	if (item.iconThemePath) App.add_icons(item.iconThemePath);
-
-	const menu = item.create_menu();
-
 	return (
-		<button
+		<menubutton
 			className="bar__tray-item"
+			usePopover={false}
 			tooltipMarkup={bind(item, "tooltipMarkup")}
-			onDestroy={() => menu?.destroy()}
-			onClickRelease={(self, event) => {
-				if (event.button !== 3) return;
-				menu?.popup_at_widget(
-					self,
-					Gdk.Gravity.SOUTH,
-					Gdk.Gravity.NORTH,
-					null,
-				);
-			}}
+			actionGroup={bind(item, "actionGroup").as((ag) => ["dbusmenu", ag])}
+			menuModel={bind(item, "menuModel")}
 		>
 			<icon gIcon={bind(item, "gicon")} />
-		</button>
+		</menubutton>
 	);
 };
 
@@ -58,13 +47,7 @@ export default () => {
 			<BarItem className="bar__tray">
 				<box spacing={4} hexpand={false} valign={Gtk.Align.CENTER}>
 					{bind(tray, "items").as((items) =>
-						items
-							.filter((item) => item.iconName != null)
-							.map((item) => {
-								if (item.iconName != null) {
-									return <BarTrayItem item={item} />;
-								}
-							}),
+						items.map((item) => <BarTrayItem item={item} />),
 					)}
 				</box>
 			</BarItem>

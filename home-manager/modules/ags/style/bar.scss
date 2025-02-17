@@ -1,7 +1,10 @@
+@use "sass:color";
+@use "colors";
+
 .bar {
 	min-height: 60px;
 	padding: 0 12px;
-	background: $surface_transparent;
+	background: colors.$surface_transparent;
 }
 
 .bar__item {
@@ -12,33 +15,33 @@
 	padding-right: 16px;
 	min-height: 42px;
 	border-radius: 24px;
-	background: $inverse_surface_transparent;
-	color: $on_surface;
+	background: colors.$inverse_surface_transparent;
+	color: colors.$on_surface;
 	border: none;
 	outline: none;
 	&.bar__button {
 		&:hover {
-			background: $inverse_surface_transparent,
-				$inverse_surface_transparent_overlay;
+			background: colors.$inverse_surface_transparent,
+				colors.$inverse_surface_transparent_overlay;
 		}
 		&:active {
-			background: $inverse_surface_transparent_variant,
-				$inverse_surface_transparent_overlay;
+			background: colors.$inverse_surface_transparent_variant,
+				colors.$inverse_surface_transparent_overlay;
 		}
 		&.active {
-			background: $primary;
-			color: $on_primary;
+			background: colors.$primary;
+			color: colors.$on_primary;
 		}
 		&.bar__recording-indicator {
 			padding: 0;
 			min-height: 42px;
 			min-width: 42px;
-			background: $error_container;
-			color: $on_error_container;
+			background: colors.$error_container;
+			color: colors.$on_error_container;
 
 			&:hover {
-				color: $error_container;
-				background: $on_error_container;
+				color: colors.$error_container;
+				background: colors.$on_error_container;
 			}
 			&.spacing {
 				label {
@@ -54,23 +57,23 @@
 
 .bar__item.transparent {
 	background: transparent;
-	color: $on_surface;
+	color: colors.$on_surface;
 }
 
 .bar__item.primary_container {
-	background: $primary_container;
-	color: $on_primary_container;
+	background: colors.$primary_container;
+	color: colors.$on_primary_container;
 }
 
 .bar__app-launcher.bar__button {
 	padding: 0px;
 	transition: all 0.3s;
-	background-color: $primary;
+	background-color: colors.$primary;
 	min-height: 42px;
 	min-width: 42px;
 
 	.bar__app-launcher_icon {
-		background-color: $on_primary;
+		background-color: colors.$on_primary;
 		min-width: 14px;
 		min-height: 14px;
 		border-radius: 100%;
@@ -78,17 +81,17 @@
 	}
 
 	&:hover {
-		background-color: $on_primary;
+		background-color: colors.$on_primary;
 		.bar__app-launcher_icon {
-			background-color: $primary;
+			background-color: colors.$primary;
 		}
 	}
 
 	&.active,
 	&:active {
-		background-color: $primary_container;
+		background-color: colors.$primary_container;
 		.bar__app-launcher_icon {
-			background-color: $on_primary_container;
+			background-color: colors.$on_primary_container;
 		}
 	}
 }
@@ -98,11 +101,11 @@
 	min-width: 8px;
 	min-height: 8px;
 	transition: all 0.3s;
-	background-color: $inverse_surface_transparent_variant;
+	background-color: colors.$inverse_surface_transparent_variant;
 	border-radius: 100px;
 
 	&:hover {
-		background-color: transparentize($primary, 0.4);
+		background-color: color.adjust(colors.$primary, $alpha: -0.4);
 	}
 
 	&.active,
@@ -110,7 +113,7 @@
 		min-height: 12px;
 		min-width: 40px;
 		border-radius: 100px;
-		background-color: $primary;
+		background-color: colors.$primary;
 	}
 }
 
@@ -150,8 +153,8 @@
 	border-radius: 9px;
 	min-width: 18px;
 	min-height: 18px;
-	background: $inverse_surface;
-	color: $surface;
+	background: colors.$inverse_surface;
+	color: colors.$surface;
 }
 
 .bar__tray {
@@ -165,7 +168,7 @@
 	min-height: 22px;
 	background: none;
 	&:hover {
-		background-color: transparentize($primary, 0.4);
+		background-color: color.adjust(colors.$primary, $alpha: -0.4);
 	}
 	icon {
 		font-size: 18px;

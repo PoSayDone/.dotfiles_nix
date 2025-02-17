@@ -67,7 +67,7 @@
   security.pam.services.astal-auth = {};
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    nerd-fonts.jetbrains-mono
     source-han-sans
   ];
 
@@ -97,6 +97,14 @@
   hardware.pulseaudio.enable = false;
   # services
   services = {
+    redis = {
+      servers = {
+        "newstrading" = {
+          enable = true;
+          port = 6379;
+        };
+      };
+    };
     postgresql = {
       enable = true;
       ensureDatabases = ["postgres"];
@@ -107,6 +115,18 @@
         host  all       all     ::1/128        trust
       '';
     };
+
+    # zapret = {
+    #   enable = true;
+    #   whitelist = [
+    #     ...
+    #   ];
+    #   params = [
+    #     "--dpi-desync=fake,disorder2"
+    #     "--dpi-desync-ttl=1"
+    #     "--dpi-desync-autottl=2"
+    #   ];
+    # };
     pipewire = {
       enable = true;
       audio.enable = true;
@@ -172,6 +192,7 @@
       "libvirtd"
       "docker"
       "scanner"
+      "gamemode"
       "lp"
     ];
   };

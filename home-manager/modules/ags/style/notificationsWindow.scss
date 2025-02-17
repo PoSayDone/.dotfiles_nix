@@ -1,9 +1,11 @@
+@use "colors";
+
 .notifications-window {
 	border-radius: 30px;
 	min-width: 400px;
 	min-height: 550px;
 	padding: 10px 10px 0;
-	background: $surface_transparent;
+	background: colors.$surface_transparent;
 	transition:
 		background-color 1s ease-in-out,
 		color 1s ease-in-out;
@@ -11,7 +13,7 @@
 	.notification {
 		border-radius: 4px;
 		transition: 0.2s border-radius ease-in-out;
-		background-color: $inverse_surface_transparent;
+		background-color: colors.$inverse_surface_transparent;
 	}
 }
 

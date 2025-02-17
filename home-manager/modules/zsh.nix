@@ -31,6 +31,7 @@
 
       export BUN_INSTALL=$HOME/.bun
       export PATH="$HOME/go/bin:$BUN_INSTALL/bin:$PATH"
+      export PATH="$HOME/.npm-global/bin:$PATH"
 
       bindkey -e
 

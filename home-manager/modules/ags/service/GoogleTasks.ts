@@ -157,31 +157,27 @@ class GoogleTasksService extends GObject.Object {
 		ensureDirectory(`${GLib.get_user_state_dir()}/ags/user/`);
 		this.#savedDataPath = `${GLib.get_user_state_dir()}/ags/user/todos.json`;
 
+		let selectedListId;
+
 		try {
 			const savedDataFile = readFile(this.#savedDataPath);
 			const savedData = JSON.parse(savedDataFile);
-			this.#selectedListId = savedData["selectedListId"];
-		} catch {}
+			selectedListId = savedData["selectedListId"];
 
-		try {
 			const taskLists = await this.getTasksLists();
 			this.#availableTaskLists = taskLists.items;
 			this.notify("available-task-lists");
+		} catch {
+			const taskLists = await this.getTasksLists();
+			this.#availableTaskLists = taskLists.items;
+			this.notify("available-task-lists");
+			selectedListId = this.#availableTaskLists?.[0].id;
+		}
 
-			if (this.#availableTaskLists.length > 0) {
-				if (
-					!this.#selectedListId ||
-					!this.#availableTaskLists.find(
-						(taskList) => taskList.id == this.#selectedListId,
-					)
-				) {
-					this.#selectedListId = this.#availableTaskLists[0].id;
-				}
-				this.notify("selected-list-id");
-				const tasks = await this.getTasks(this.#selectedListId);
-				this.#todos = tasks.items;
-				this.notify("todos");
-			}
+		try {
+			this.#selectedListId = selectedListId;
+			this.notify("selected-list-id");
+
 			this.#isLoading = false;
 			this.notify("is-loading");
 		} catch (error) {

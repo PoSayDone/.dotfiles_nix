@@ -14,7 +14,9 @@
 
   programs = {
     steam.enable = true;
+    # uwsm.enable = true;
     hyprland = {
+      # withUWSM = true;
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
@@ -66,8 +68,7 @@
   };
 
   environment = {
-    systemPackages = with pkgs;
-    with gnome; [
+    systemPackages = with pkgs; [
       adwaita-icon-theme
       nautilus
       gnome-calendar
