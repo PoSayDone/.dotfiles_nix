@@ -10,17 +10,27 @@
     ./hardware/work.nix
   ];
 
-  hardware.graphics = {
-    enable = true;
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware = {
+    graphics = {
+      enable = true;
+    };
+
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+
+    keyboard.qmk.enable = true;
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
+  environment.systemPackages = with pkgs; [
+    via
+  ];
+  services.udev.packages = [pkgs.via];
 }

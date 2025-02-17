@@ -70,10 +70,10 @@ in {
 
   services = {
     mpris-proxy.enable = true;
-    kdeconnect = {
-      enable = true;
-      indicator = false;
-    };
+    # kdeconnect = {
+    #   enable = true;
+    #   indicator = false;
+    # };
     # udiskie = {
     #   enable = true;
     #   notify = false;

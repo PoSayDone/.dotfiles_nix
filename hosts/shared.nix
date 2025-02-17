@@ -39,6 +39,9 @@
 
   #virtualisation
   virtualisation = {
+    podman = {
+      enable = true;
+    };
     docker = {
       enable = true;
     };
@@ -47,6 +50,7 @@
   # packages
   environment = {
     systemPackages = with pkgs; [
+      pkgs.distrobox
       polkit_gnome
       home-manager
       system-config-printer
@@ -94,7 +98,6 @@
     zsh.enable = true;
   };
 
-  hardware.pulseaudio.enable = false;
   # services
   services = {
     redis = {
@@ -115,18 +118,7 @@
         host  all       all     ::1/128        trust
       '';
     };
-
-    # zapret = {
-    #   enable = true;
-    #   whitelist = [
-    #     ...
-    #   ];
-    #   params = [
-    #     "--dpi-desync=fake,disorder2"
-    #     "--dpi-desync-ttl=1"
-    #     "--dpi-desync-autottl=2"
-    #   ];
-    # };
+    pulseaudio.enable = false;
     pipewire = {
       enable = true;
       audio.enable = true;

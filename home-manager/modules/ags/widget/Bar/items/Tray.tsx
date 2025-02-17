@@ -49,6 +49,13 @@ export default () => {
 					{bind(tray, "items").as((items) =>
 						items.map((item) => <BarTrayItem item={item} />),
 					)}
+					{/* {bind(tray, "items").as((items) =>
+						items.map((item) => {
+							if (item.iconThemePath)
+								App.add_icons(item.iconThemePath);
+							return <BarTrayItem item={item} />;
+						}),
+					)} */}
 				</box>
 			</BarItem>
 		</revealer>
