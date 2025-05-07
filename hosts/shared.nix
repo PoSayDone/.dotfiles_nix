@@ -65,7 +65,7 @@
       hunspellDicts.en_US
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
-    binsh = "${pkgs.zsh}/bin/zsh";
+    binsh = "${pkgs.fish}/bin/fish";
   };
   security.pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
   security.pam.services.astal-auth = {};
@@ -74,6 +74,7 @@
     nerd-fonts.jetbrains-mono
     source-han-sans
   ];
+  fonts.fontDir.enable = true;
 
   #power management
   powerManagement = {
@@ -95,7 +96,7 @@
     gamemode = {
       enable = true;
     };
-    zsh.enable = true;
+    fish.enable = true;
   };
 
   # services
@@ -175,7 +176,7 @@
   # user
   users.users.${username} = {
     isNormalUser = true;
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     extraGroups = [
       "adbusers"
       "networkmanager"

@@ -6,6 +6,7 @@
   home.packages = with pkgs;
   with nodePackages_latest; [
     #cli
+    devenv
     xclip
     btop
     fd
@@ -29,11 +30,12 @@
     blueman
 
     #gui
+    # redisinsight
     onlyoffice-desktopeditors
     lutris
     obs-studio
     wpsoffice
-    figma-linux
+    inputs.figma-linux.packages.${system}.default
     zoom-us
     kitty
     foot
@@ -51,6 +53,7 @@
     hiddify-app
     telegram-desktop
     cassette
+    spotify
 
     #hypr
     inputs.hyprsettings.packages.${pkgs.system}.default
@@ -78,7 +81,7 @@
     dbeaver-bin
     jetbrains.rider
     bruno
-    zed-editor
+    zed-editor-fhs
     docker-compose
     android-studio
 

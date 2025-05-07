@@ -102,6 +102,10 @@
     dbvisualizer-nur = {
       url = "github:jeremiehuchet/nur-packages";
     };
+    figma-linux = {
+      url = "github:HelloWorld017/figma-linux-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
 
