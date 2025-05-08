@@ -62,10 +62,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nbfc-linux = {
-      url = "github:nbfc-linux/nbfc-linux";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nbfc-linux = {
+    #   url = "github:nbfc-linux/nbfc-linux";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
@@ -101,6 +101,10 @@
     };
     dbvisualizer-nur = {
       url = "github:jeremiehuchet/nur-packages";
+    };
+    figma-linux = {
+      url = "github:HelloWorld017/figma-linux-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

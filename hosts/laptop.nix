@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./shared.nix
     ./modules/hyprland.nix
@@ -10,8 +6,8 @@
   ];
 
   environment = {
-    systemPackages = [
-      inputs.nbfc-linux.packages.${pkgs.system}.default
+    systemPackages = with pkgs; [
+      nbfc-linux
     ];
   };
 

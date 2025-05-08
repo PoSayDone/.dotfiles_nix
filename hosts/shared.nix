@@ -97,6 +97,7 @@
     };
     zsh.enable = true;
   };
+  fonts.fontDir.enable = true;
 
   # services
   services = {

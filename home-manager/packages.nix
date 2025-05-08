@@ -20,7 +20,7 @@
     tesseract
 
     #tools
-    rustdesk-flutter
+    # rustdesk-flutter
     ripdrag
     nekoray
     wineWowPackages.waylandFull
@@ -33,7 +33,7 @@
     lutris
     obs-studio
     wpsoffice
-    figma-linux
+    inputs.figma-linux.packages.${system}.default
     zoom-us
     kitty
     foot
@@ -78,7 +78,7 @@
     dbeaver-bin
     jetbrains.rider
     bruno
-    zed-editor
+    zed-editor-fhs
     docker-compose
     android-studio
 
