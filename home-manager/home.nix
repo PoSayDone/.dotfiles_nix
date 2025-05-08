@@ -8,7 +8,7 @@ in {
   imports = [
     ./packages.nix
     ./modules/ags
-    ./modules/zsh.nix
+    ./modules/fish.nix
     ./modules/tmux.nix
     ./modules/git.nix
     ./modules/theme.nix
@@ -45,7 +45,7 @@ in {
     sessionVariables = {
       QT_XCB_GL_INTEGRATION = "none"; # kde-connect
       NIXPKGS_ALLOW_UNFREE = "1";
-      SHELL = "${pkgs.zsh}/bin/zsh";
+      SHELL = "${pkgs.fish}/bin/fish";
       BAT_THEME = "base16";
       GOPATH = "${homeDirectory}/.local/share/go";
       GOMODCACHE = "${homeDirectory}/./go/pkg/mod";

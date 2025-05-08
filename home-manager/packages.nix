@@ -6,6 +6,7 @@
   home.packages = with pkgs;
   with nodePackages_latest; [
     #cli
+    devenv
     xclip
     btop
     fd
@@ -29,6 +30,7 @@
     blueman
 
     #gui
+    # redisinsight
     onlyoffice-desktopeditors
     lutris
     obs-studio
@@ -51,6 +53,7 @@
     hiddify-app
     telegram-desktop
     cassette
+    spotify
 
     #hypr
     inputs.hyprsettings.packages.${pkgs.system}.default
